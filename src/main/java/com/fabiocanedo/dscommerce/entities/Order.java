@@ -16,7 +16,7 @@ public class Order {
     private Long id;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant momemt;
+    private Instant moment;
 
     private OrderStatus status;
 
@@ -34,7 +34,7 @@ public class Order {
 
     public Order(Long id, Instant momemt, OrderStatus status, User client) {
         this.id = id;
-        this.momemt = momemt;
+        this.moment = momemt;
         this.status = status;
         this.client = client;
     }
@@ -47,12 +47,12 @@ public class Order {
         this.id = id;
     }
 
-    public Instant getMomemt() {
-        return momemt;
+    public Instant getMoment() {
+        return moment;
     }
 
-    public void setMomemt(Instant momemt) {
-        this.momemt = momemt;
+    public void setMoment(Instant moment) {
+        this.moment = moment;
     }
 
     public OrderStatus getStatus() {
