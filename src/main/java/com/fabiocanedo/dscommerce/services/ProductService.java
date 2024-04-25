@@ -55,7 +55,7 @@ public class ProductService {
             copyDtoToEntity(dto, entity);
             //Salva no banco de dados
             entity = repository.save(entity);
-            //Retorna o produto DTO
+            //Retorna o produto DTO atualizado
             return new ProductDTO(entity);
         }catch(EntityNotFoundException e){
             throw new ResourceNotFoundException("Recurso não encontrado");
