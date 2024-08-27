@@ -9,7 +9,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "tb_user")
-public class User implements UserDetails{
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,7 +55,7 @@ public class User implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return roles;
     }
 
     public String getPassword() {
@@ -64,7 +64,7 @@ public class User implements UserDetails{
 
     @Override
     public String getUsername() {
-        return password;
+        return email;
     }
 
     @Override
