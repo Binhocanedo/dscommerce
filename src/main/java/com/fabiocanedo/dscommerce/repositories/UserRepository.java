@@ -1,6 +1,7 @@
 package com.fabiocanedo.dscommerce.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.fabiocanedo.dscommerce.entities.User;
 import com.fabiocanedo.dscommerce.projections.UserDetailsProjection;
@@ -21,4 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 				WHERE tb_user.email = :email
 			""")
     List<UserDetailsProjection> searchUserAndRolesByEmail(String email);
+
+
+	Optional<User> findByEmail(String email);
 }
