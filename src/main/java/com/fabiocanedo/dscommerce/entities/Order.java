@@ -28,7 +28,7 @@ public class Order {
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private Payments payments;
 
-    @OneToMany(mappedBy = "id.order")
+    @OneToMany(mappedBy = "id.order", fetch = FetchType.EAGER)
     private Set<OrderItem> items = new HashSet<>();
 
     public Order(){}
@@ -71,6 +71,8 @@ public class Order {
     public void setClient(User client) {
         this.client = client;
     }
+
+    public Payments getPayments() {return payments;}
 
     public Set<OrderItem> getItems() {
         return items;
