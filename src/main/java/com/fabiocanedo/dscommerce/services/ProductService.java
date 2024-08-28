@@ -1,7 +1,9 @@
 package com.fabiocanedo.dscommerce.services;
 
+import com.fabiocanedo.dscommerce.dto.CategoryDTO;
 import com.fabiocanedo.dscommerce.dto.ProductDTO;
 import com.fabiocanedo.dscommerce.dto.ProductMinDTO;
+import com.fabiocanedo.dscommerce.entities.Category;
 import com.fabiocanedo.dscommerce.entities.Product;
 import com.fabiocanedo.dscommerce.repositories.ProductRepository;
 import com.fabiocanedo.dscommerce.services.exceptions.DatabaseException;
@@ -47,6 +49,7 @@ public class ProductService {
 
         return new ProductDTO(entity);
     }
+
     @Transactional
     public ProductDTO update(Long id, ProductDTO dto){
         try{
@@ -80,5 +83,11 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+        entity.getCategories().clear();
+        for(CategoryDTO categoryDTO : dto.getCategories()){
+            Category category = new Category();
+            category.setId(categoryDTO.getId());
+            entity.getCategories().add(category);
+        }
     }
 }
