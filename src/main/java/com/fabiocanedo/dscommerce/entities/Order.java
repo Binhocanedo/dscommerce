@@ -31,6 +31,8 @@ public class Order {
     @OneToMany(mappedBy = "id.order", fetch = FetchType.EAGER)
     private Set<OrderItem> items = new HashSet<>();
 
+    
+
     public Order(){}
 
     public Order(Long id, Instant momemt, OrderStatus status, User client) {
@@ -43,6 +45,7 @@ public class Order {
     public Long getId() {
         return id;
     }
+
 
     public void setId(Long id) {
         this.id = id;
